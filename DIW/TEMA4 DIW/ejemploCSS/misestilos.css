@@ -1,0 +1,11 @@
+div > p.mitexto2{  
+    color: #990000;
+}
+
+/*p.mitexto2 + p{  
+    color: #990000;
+}*/
+
+p.mitexto2 ~ p{  
+    color: #990000;
+}
