@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+td {
+    border: #b2b2b2 1px solid;
+    border-collapse: separate;
+    text-align: center;
+}
+
+table {
+    border: 1px solid;
+    border-collapse: separate;
+}
+
+.datos {
+    border-radius: 5px;
+    width: 90%;
+}
