@@ -1,0 +1,105 @@
+body {
+    background-image: url("https://avantvideo.com/1384-large_default/disco-duro-sata-1tb.jpg");
+    background-repeat: repeat-y;
+}
+
+nav a li{
+    text-decoration:none;
+    color:magenta;
+    font-size:14px;
+}
+
+nav a li:active {
+    color: red;
+}
+
+nav a:visited{
+    color: green;
+}
+
+nav li{
+    display:inline-block;
+    width:15%;
+    padding:5px 10px;
+    background-color:#000;
+    border:1px solid #000;
+    text-align:center;
+    color:#fff;
+}
+
+nav li:hover{
+    background-color:#fff;
+    color:#000;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+    background-color: greenyellow;
+}
+
+h2 {
+    text-align: right;
+    color: brown;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h3 {
+    text-align: left;
+    background-color: blue;
+}
+
+p {
+    color: #2c2c2c;
+    text-align: center;
+    font-family: serif;
+    font-size: 12pt;
+}
+
+
+/*Primera letra tras encabezado 1 y 2 color gris oscuro tamaño 250%, tachado.*/
+
+h1:first-child+p:first-letter, h1:nth-of-type(2)+p:first-letter {
+    font-size: 250%;
+    text-decoration: line-through;
+}
+
+ul {
+    text-align: center;
+    list-style-position: outside;
+    list-style-type: disc;
+}
+
+
+DD {
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Arial;
+}
+
+DT {
+    color: #2c2c2c;
+    font-style: oblique;
+}
+
+image {
+    width: 125px;
+    height: 125px;
+}
+
+.subir{
+    font-family: serif;
+    font-size: 200%;
+    color: red;
+    text-decoration: none;
+}
+
+.subir:hover{
+    font-size: 300%;
+}
+
+.subir:visited{
+    color: white;
+    background-color: silver;
+}

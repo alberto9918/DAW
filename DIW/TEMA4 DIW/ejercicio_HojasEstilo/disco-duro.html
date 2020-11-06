@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>Elementos Hardware: El Disco Duro</TITLE>
+      <META http-equiv="Content-Type"content="text/html;charset=UTF-8">
+      <LINK href="disco-duro.css" rel="stylesheet" type="text/css"> 
+   </HEAD>
+   <BODY>
+      <P><A name="ancla"></A></P>
+      <nav>
+         <ul>
+                 <a href="indice.html"><li>Índice</li></a>
+                 <a href="BIOS.html"><li>BIOS</li></a>
+                 <a href="bus.html"><li>BUS</li></a>
+                 <a href="#"><li>Disco duro</li></a>
+                 <a href="memorias.html"><li>Memorias</li></a>
+         </ul>
+      </nav>
+   
+   <H1>INDICE</H1>
+      <UL> 
+        <LI>Estructura física
+	  <UL>
+	     <LI>Funcionamiento</LI>
+	  </UL>
+          <UL>
+             <LI>Cabeza,Cilindros,Sectores</LI>
+          </UL>
+	</LI>	
+	<LI>Estructura lógica
+	  <UL>
+	     <LI>Sector arranque</LI>
+          </UL>
+          <UL>
+             <LI>Espacio particionado</LI>
+          </UL>
+          <UL>
+             <LI>Espacio sin Particionar</LI>
+          </UL>
+         </LI>
+         <LI>Características
+            <UL>
+               <LI>Modo Transferencia</LI>
+            </UL>
+            <UL>
+               <LI>Tiempo acceso</LI>
+            </UL>
+            <UL>
+               <LI>Tiempo búsqueda</LI>
+            </UL>
+            <UL>
+               <LI>Velocidad de rotación</LI>
+            </UL>
+            <UL>
+               <LI>Latencia</LI>
+            </UL>
+            <UL>
+               <LI>Capacidad de almacenamiento</LI>
+            </UL>
+            <UL>
+               <LI>Caché Dislo</LI>
+            </UL>
+         </LI>
+      </UL>
+    
+   <H1>Disco duro</H1>
+
+   <P>Un disco duro o disco rígido es un dispositivo de almacenamiento de datos no volátil que emplea un sistema de grabación magnética para almacenar datos digitales. Se compone de uno o más platos o discos rígidos, unidos por un mismo eje que gira a gran velocidad dentro de una caja metálica sellada. Sobre cada plato, y en cada una de sus caras, se sitúa un cabezal de lectura/escritura que flota sobre una delgada lámina de aire generada por la rotación de los discos.</P>
+
+
+            <IMG src="disco-duro.jpg" alt="disco-duro" id="disco-duro">
+
+   <H2>Estructura física</H2>
+
+
+            <IMG src="disco-duro2.jpg" alt="disco-duro2" id="disco-duro2">
+            
+   
+   <H3>Funcionamiento</H3>
+
+   <P>Dentro de un disco duro hay uno o varios discos (de aluminio o cristal) concéntricos llamados platos (normalmente entre 2 y 4, aunque pueden ser hasta 6 ó 7 según el modelo), y que giran todos a la vez sobre el mismo eje, al que están unidos. El cabezal (dispositivo de lectura y escritura) está formado por un conjunto de brazos paralelos a los platos, alineados verticalmente y que también se desplazan de forma simultánea, en cuya punta están las cabezas de lectura/escritura. Por norma general hay una cabeza de lectura/escritura para cada superficie de cada plato. Los cabezales pueden moverse hacia el interior o el exterior de los platos, lo cual combinado con la rotación de los mismos permite que los cabezales puedan alcanzar cualquier posición de la superficie de los platos.</P>
+
+
+   <P>Cada plato posee dos caras, y es necesaria una cabeza de lectura/escritura para cada cara. Si se observa el esquema Cilindro-Cabeza-Sector de más abajo, a primera vista se ven 4 brazos, uno para cada plato. En realidad, cada uno de los brazos es doble, y contiene 2 cabezas: una para leer la cara superior del plato, y otra para leer la cara inferior. Por tanto, hay 8 cabezas para leer 4 platos, aunque por cuestiones comerciales, no siempre se usan todas las caras de los discos y existen discos duros con un número impar de cabezas, o con cabezas deshabilitadas. Las cabezas de lectura/escritura nunca tocan el disco, sino que pasan muy cerca (hasta a 3 nanómetros), debido a una finísima película de aire que se forma entre éstas y los platos cuando éstos giran (algunos discos incluyen un sistema que impide que los cabezales pasen por encima de los platos hasta que alcancen una velocidad de giro que garantice la formación de esta película). Si alguna de las cabezas llega a tocar una superficie de un plato, causaría muchos daños en él, rayándolo gravemente, debido a lo rápido que giran los platos (uno de 7.200 revoluciones por minuto se mueve a 129 km/h en el borde de un disco de 3,5 pulgadas).</P>
+
+   <H3>Cabeza, Cilindros, Sectores</H3>
+
+
+
+               <IMG src="disco-duro-comp.jpg" alt="disco-duro-comp" id="CompDiscDuro">
+
+   <P>Hay varios conceptos para referirse a zonas del disco:</P>
+
+      <DL>
+             <DD>Plato:</DD>
+                        <DT>Cada uno de los discos que hay dentro del disco duro..</DT>
+             <DD>Cara:</DD>
+                        <DT>Cada uno de los dos lados de un plato..</DT>
+             <DD>Cabeza:</DD>
+                        <DT>Número de cabezales..</DT>
+             <DD>Pistas:</DD>
+                        <DT>Una circunferencia dentro de una cara; la pista 0 está en el borde exterior.</DT>
+             <DD>Cilindro:</DD>
+                        <DT>Conjunto de varias pistas; son todas las circunferencias que están alineadas verticalmente (una de cada cara)..</DT>
+             <DD>Sector:</DD>
+                        <DT>cada una de las divisiones de una pista. El tamaño del sector no es fijo, siendo el estándar actual 512 bytes, aunque próximamente serán 4 KiB. Antiguamente el número de sectores por pista era fijo, lo cual desaprovechaba el espacio significativamente, ya que en las pistas exteriores pueden almacenarse más sectores que en las interiores. Así, apareció la tecnología ZBR (grabación de bits por zonas) que aumenta el número de sectores en las pistas exteriores, y utiliza más eficientemente el disco duro. Así las pistas se agrupan en zonas de pistas de igual cantidad de sectores. Cuanto más lejos del centro de cada plato se encuentra una zona, ésta contiene una mayor cantidad de sectores en sus pistas. Además mediante ZBR, cuando se leen sectores de cilindros más externos la tasa de transferencia de bits por segundo es mayor; por tener la misma velocidad angular que cilindros internos pero mayor cantidad de sectores.</DT>
+
+             <IMG src="comp-disco-duro.png" alt="comp-disco-duro" id="CompDiscDuro">
+         
+      </DL>
+   <H2>Estructura lógica</H2>
+
+   <P>Dentro del disco se encuentran:</P>
+
+   <P>El Master Boot Record(en el sector de arranque), que contiene la tabla de particiones</P>
+
+   <P>Las particiones, necesarias para poder colocar los sistemas de archivos</P>
+   
+   <H3>Sector de arranque</H3>
+ 
+   <P>Un registro de arranque principal, conocido también como registro de arranque maestro o por su nombre en inglés master boot record (abreviado MBR) es el primer sector ("sector cero") de un dispositivo de almacenamiento de datos, como un disco duro. A veces, se emplea para el arranque del sistema operativo con bootstrap, otras veces es usado para almacenar una tabla de particiones y, en ocasiones, se usa sólo para identificar un dispositivo de disco individual, aunque en algunas máquinas esto último no se usa y es ignorado.</P>
+
+
+               <IMG src="sector-arranque.jpg" alt="sector-arranque" id="sector-arranque">
+
+
+
+   <H3>Espacio particionado</H3>
+
+   <P>Una partición de disco, en informática, es el nombre genérico que recibe cada división presente en una sola unidad física de almacenamiento de datos. Toda partición tiene su propio sistema de archivos (formato); generalmente, casi cualquier sistema operativo interpreta, utiliza y manipula cada partición como un disco físico independiente, a pesar de que dichas particiones estén en un solo disco físico.</P>
+
+
+   <H4>Tipos de particiones</H4>
+
+   <P>El formato o sistema de archivos de las particiones no debe ser confundido con el tipo de partición, ya que en realidad no tienen directamente mucho que ver. Independientemente del sistema de archivos de una partición (FAT, ext3, NTFS, etc.), existen 3 tipos diferentes de particiones:
+
+   <P><B>Partición primaria:</B>Son las divisiones crudas o primarias del disco, solo puede haber 4 de éstas o 3 primarias y una extendida. Depende de una tabla de particiones. Un disco físico completamente formateado consiste, en realidad, de una partición primaria que ocupa todo el espacio del disco y posee un sistema de archivos. A este tipo de particiones, prácticamente cualquier sistema operativo puede detectarlas y asignarles una unidad, siempre y cuando el sistema operativo reconozca su formato (sistema de archivos).</P>
+
+   <P><B>Partición extendida:</B>También conocida como partición secundaria es otro tipo de partición que actúa como una partición primaria; sirve para contener infinidad de unidades lógicas en su interior. Fue ideada para romper la limitación de 4 particiones primarias en un solo disco físico. Solo puede existir una partición de este tipo por disco, y solo sirve para contener particiones lógicas. Por lo tanto, es el único tipo de partición que no soporta un sistema de archivos directamente.</P>
+
+   <P><B>Partición lógica:</B>Ocupa una porción de la partición extendida o la totalidad de la misma, la cual se ha formateado con un tipo específico de sistema de archivos (FAT32, NTFS, ext2,...) y se le ha asignado una unidad, así el sistema operativo reconoce las particiones lógicas o su sistema de archivos. Puede haber un máximo de 23 particiones lógicas en una partición extendida. Linux impone un máximo de 15, incluyendo las 4 primarias, en discos SCSI y en discos IDE 8963.</P>
+
+
+
+             <IMG src="tabla-particiones.jpg" alt="tabla-particiones" id="tabla-particiones">
+
+
+   <H3>Espacio sin particionar</H3>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+   <H2>Características</H2>
+
+   <DL>
+             <DD>Modo Transferencia:</DD>
+                        <DT>Velocidad a la que puede transferir la información a la computadora una vez la aguja está situada en la pista y sector correctos. Puede ser velocidad sostenida o de pico.</DT>
+             <DD>Tiempo acceso:</DD>
+                        <DT>Tiempo medio que tarda la aguja en situarse en la pista y el sector deseado; es la suma del Tiempo medio de búsqueda (situarse en la pista), Tiempo de lectura/escritura y la Latencia media (situarse en el sector).</DT>
+             <DD>Tiempo búsqueda:</DD>
+                        <DT>Tiempo medio que tarda la aguja en situarse en la pista deseada; es la mitad del tiempo empleado por la aguja en ir desde la pista más periférica hasta la más central del disco.</DT>
+             <DD>Velocidad de rotación:</DD>
+                        <DT>Revoluciones por minuto de los platos. A mayor velocidad de rotación, menor latencia media.</DT>
+             <DD>Latencia:</DD>
+                        <DT>Tiempo medio que tarda la aguja en situarse en el sector deseado; es la mitad del tiempo empleado en una rotación completa del disco.</DT>
+             <DD>Capacidad de almacenamento:</DD>
+                        <DT>Los discos duros tienen una gran capacidad de almacenamiento de información, pero al estar alojados normalmente dentro de la computadora (discos internos), no son extraíbles fácilmente. Para intercambiar información con otros equipos (si no están conectados en red) necesitamos utilizar unidades de disco, como los disquetes, los discos ópticos (CD, DVD), los discos magneto-ópticos, memorias USB, memorias flash, etc.El disco duro almacena casi toda la información que manejamos al trabajar con una computadora.</DT>
+             <DD>Caché Dislo:</DD>
+                        <DT>Es una memoria de estado sólido, tipo RAM, dentro del disco duro de estado sólido. Los discos duros de estado sólido utilizan cierto tipo de memorias construidas con semiconductores para almacenar la información. El uso de esta clase de discos generalmente se limita a las supercomputadoras, por su elevado precio.</DT>
+
+   </DL>
+   <a class="subir" href="#ancla">Volver arriba</a>
+   </BODY>
+</HTML>
+   

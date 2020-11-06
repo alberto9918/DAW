@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<HTML>
+   <HEAD>
+      <TITLE>Elementos Hardware: Los buses</TITLE>
+      <META http-equiv="Content-Type"content="text/html;charset=UTF-8">
+      <LINK href="bus.css" rel="stylesheet" type="text/css"> 
+   </HEAD>
+   <BODY>
+      <P><A name="ancla"></A></P>
+      <nav>
+         <ul>
+                 <a href="indice.html"><li>Índice</li></a>
+                 <a href="BIOS.html"><li>BIOS</li></a>
+                 <a href="#"><li>BUS</li></a>
+                 <a href="disco-duro.html"><li>Disco duro</li></a>
+                 <a href="memorias.html"><li>Memorias</li></a>
+         </ul>
+      </nav>
+
+
+   <H1>BUS ISA</H1>
+
+<P>El Industry Standard Architecture, , casi siempre abreviado ISA, es una arquitectura de bus creada por IBM en 1980 en Boca Raton, Florida para ser empleado en los IBM PC.</P>
+
+<P>ISA se creó como un sistema de 8 bits en el IBM PC en 1980, y se extendió en 1983 como el XT bus architecture. El nuevo estándarte de 16 bits se introduce en 1984 y se le llama habitualmente AT bus architecture. Diseñado para conectar tarjetas de ampliación a la placa madre, el protocolo también permite el bus mastering aunque sólo los primeros 16 MiB de la memoria principal están disponibles para acceso directo. El bus de 8 bits funciona a 4,77 MHz (la misma velocidad que el procesador Intel 8088 empleado en el IBM PC), mientras que el de 16 bits opera a 8 MHz (el de Intel 80286 del IBM AT). Está también disponible en algunas máquinas que no son compatibles IBM PC, como el AT&T Hobbit (de corta historia), los Commodore Amiga 2000 y los BeBox basados en PowerPC. Físicamente, el slot XT es un conector de borde de tarjeta de 62 contactos (31 por cara) y 8,5 centímetros, mientras que el AT se añade un segundo conector de 36 contactos (18 por cara), con un tamaño de 14 cm. Ambos suelen ser en color negro. Al ser retro compatibles, puede conectarse una tarjeta XT en un slot AT sin problemas, excepto en placas mal diseñadas.</P>
+<P>En 1987, IBM comienza a reemplazar el bus ISA por su bus propietario MCA (Micro Channel Architecture) en un intento por recuperar el control de la arquitectura PC y con ello del mercado PC. El sistema es mucho más avanzado que ISA, pero incompatible física y lógicamente, por lo que los fabricantes de ordenadores responden con el Extended Industry Standard Architecture (EISA) y posteriormente con el VESA Local Bus (VLB). De hecho, VLB usa algunas partes originalmente diseñados para MCA debido a que los fabricantes de componentes ya tienen la habilidad de fabricarlos. Ambos son extensiones compatibles con el estándar ISA.</P>
+<P>Los usuarios de máquinas basadas en ISA tenían que disponer de información especial sobre el hardware que iban a añadir al sistema. Aunque un puñado de tarjetas eran esencialmente Plug-and-play (enchufar y listo), no era lo habitual. Frecuentemente había que configurar varias cosas al añadir un nuevo dispositivo, como la IRQ, las direcciones de entrada/salida, o el canal DMA. MCA había resuelto esos problemas, y actualmente PCI incorpora muchas de las ideas que nacieron con MCA (aunque descienden más directamente de EISA).</P>
+<P>Estos problema con la configuración llevaron a la creación de ISA PnP, un sistema Plug-and-play que usa una combinación de modificaciones al hardware, la BIOS del sistema, y el software del sistema operativo que automáticamente maneja los detalles más gruesos. En realidad, ISA PnP acabó convirtiéndose en un dolor de cabeza crónico, y nunca fue bien soportado excepto al final de la historia de ISA. De ahí proviene la extensión de la frase sarcástica "plug-and-pray" (enchufar y rezar).</P>
+<P>Los slots PCI fueron el primer puerto de expansión físicamente incompatible con ISA que lograron expulsarla de la placa madre. Al principio, las placas base eran en gran parte ISA, incluyendo algunas ranuras del PCI. Pero a mitad de los 90, los dos tipos de slots estaban equilibrados, y al poco los ISA pasaron a ser minoría en los ordenadores de consumo. Las especificaciones PC 97 de Microsoft recomendaban que los slots ISA se retiraran por completo, aunque la arquitectura del sistema todavía requiera de ISA en modo residual para direccionar las lectoras de disquete, los puertos RS-232, etc. Los slots ISA permanecen por algunos años más y es posible ver placas con un slot Accelerated Graphics Port (AGP) justo al lado de la CPU, una serie de slots PCI, y uno o dos slots ISA cerca del borde.
+Es también notable que los slots PCI están "rotados" en comparación con los ISA. Los conectores externos y la circuitería principal de ISA están dispuestos en el lado izquierdo de la placa, mientras que los de PCI lo están en el lado derecho, siempre mirando desde arriba. De este modo ambos slots podían estar juntos, pudiendo usarse sólo uno de ellos, lo que exprimía la placa madre.</P>
+<P>El ancho de banda máximo del bus ISA de 16 bits es de 16 Mbyte/segundo. Este ancho de banda es insuficiente para las necesidades actuales, tales como tarjetas de vídeo de alta resolución, por lo que el bus ISA no se emplea en los PC modernos (2004), en los que ha sido sustituido por el bus PCI.</P>
+
+ <IMG src="bus ISA.jpg" alt="bus ISA" id="ISA">
+
+
+   <H1>BUS PCI</H1>
+
+<P>Un Peripheral Component Interconnect consiste en un bus de ordenador estándar para conectar dispositivos periféricos directamente a su placa base. Estos dispositivos pueden ser circuitos integrados ajustados en ésta (los llamados "dispositivos planares" en la especificación PCI) o tarjetas de expansión que se ajustan en conectores. Es común en PC, donde ha desplazado al ISA como bus estándar, pero también se emplea en otro tipo de ordenadores.</P>
+<P>A diferencia de los buses ISA, el bus PCI permite configuración dinámica de un dispositivo periférico. En el tiempo de arranque del sistema, las tarjetas PCI y el BIOS interactúan y negocian los recursos solicitados por la tarjeta PCI. Esto permite asignación de IRQs y direcciones del puerto por medio de un proceso dinámico diferente del bus ISA, donde las IRQs tienen que ser configuradas manualmente usando jumpers externos. Las últimas revisiones de ISA y el bus MCA de IBM ya incorporaron tecnologías que automatizaban todo el proceso de configuración de las tarjetas, pero el bus PCI demostró una mayor eficacia en tecnología "plug and play". Aparte de esto, el bus PCI proporciona una descripción detallada de todos los dispositivos PCI conectados a través del espacio de configuración PCI.
+Especificaciones hardware.</P>
+
+<P>Estas especificaciones representan a la versión de PCI más comúnmente usada en los PC:</P>
+<P>Reloj de 33,33 MHz con transferencias síncronas</P>
+<P>Ancho de bus de 32 bits o 64 bits</P>
+<P>Tasa de transferencia máxima de 133 MB por segundo en el bus de 32 bits (33,33 MHz × 32 bits ÷ 8 bits/byte = 133 MB/s)</P>
+<P>Tasa de transferencia máxima de 266 MB/s en el bus de 64 bits.</P>
+<P>Espacio de dirección de 32 bits (4 GB)</P>
+<P>Espacio de puertos I/O de 32 bits (actualmente depreciado).</P>
+<P>256 bytes de espacio de configuración.</P>
+<P>3,3 V o 5 V, dependiendo del dispositivo</P>
+<P>reflected-wave switching</P>
+
+  <IMG src="bus PCI.jpg" alt="bus PCI" id="PCI">
+
+   <H1>BUS AGP</H1>
+
+<P>Accelerated Graphics Port o AGP  es una especificación de bus que proporciona una conexión directa entre el adaptador de gráficos y la memoria. Es un puerto (puesto que sólo se puede conectar un dispositivo, mientras que en el bus se pueden conectar varios) desarrollado por Intel en 1996 como solución a los cuellos de botella que se producían en las tarjetas gráficas que usaban el bus PCI. El diseño parte de las especificaciones del PCI 2.1.</P>
+<P>El puerto AGP es de 32 bits como PCI pero cuenta con notables diferencias como 8 canales más adicionales para acceso a la memoria de acceso aleatorio (RAM). Además puede acceder directamente a esta a través del puente norte pudiendo emular así memoria de vídeo en la RAM. La velocidad del bus es de 66 MHz.</P>
+<P>El bus AGP cuenta con diferentes modos de funcionamiento.</P>
+<P>AGP 1X: velocidad 66 MHz con una tasa de transferencia de 266 MB/s y funcionando a un voltaje de 3,3V.</P>
+<P>AGP 2X: velocidad 133 MHz con una tasa de transferencia de 532 MB/s y funcionando a un voltaje de 3,3V.</P>
+<P>AGP 4X: velocidad 266 MHz con una tasa de transferencia de 1 GB/s y funcionando a un voltaje de 3,3 o 1,5V para adaptarse a los diseños de las tarjetas gráficas.</P>
+<P>AGP 8X: velocidad 533 MHz con una tasa de transferencia de 2 GB/s y funcionando a un voltaje de 0,7V o 1,5V.</P>
+<P>Estas tasas de transferencias se consiguen aprovechando los ciclos de reloj del bus mediante un multiplicador pero sin modificarlos físicamente..
+El puerto AGP se utiliza exclusivamente para conectar tarjetas gráficas, y debido a su arquitectura sólo puede haber una ranura. Dicha ranura mide unos 8 cm y se encuentra a un lado de las ranuras PCI.</P>
+<P>A partir de 2006, el uso del puerto AGP ha ido disminuyendo con la aparición de una nueva evolución conocida como PCI-Express, que proporciona mayores prestaciones en cuanto a frecuencia y ancho de banda. Así, los principales fabricantes de tarjetas gráficas, como ATI y nVIDIA, han ido presentando cada vez menos productos para este puerto.</P>
+
+  <IMG src="bus AGP.jpg" alt="bus AGP" id="AGP">
+
+   <H1>Plug-and-play</H1>
+
+
+<P>Plug-and-play o PnP  es la tecnología que permite a un dispositivo informático ser conectado a una computadora sin tener que configurar, mediante jumpers o software específico (no controladores) proporcionado por el fabricante, ni proporcionar parámetros a sus controladores. Para que sea posible, el sistema operativo con el que funciona el ordenador debe tener soporte para dicho dispositivo.</P>
+<P>No se debe confundir con hot plug, que es la capacidad de un periférico para ser conectado o desconectado cuando el ordenador está encendido.
+Plug-and-play tampoco indica que no sea necesario instalar controladores adicionales para el correcto funcionamiento del dispositivo. Plug and Play no debería entenderse como sinónimo de "no necesita controladores".</P>
+
+
+<H2>Requerimientos</H2>
+
+<P>Los periféricos plug-and-play deben estar completamente libres de jumpers y de interruptores. Esto no es absolutamente cierto en la realidad.</P> <P>Afortunadamente, la mayoría de los dispositivos funcionan correctamente con su configuración de fábrica.</P>
+<P>El dispositivo también debe ser capaz de "anunciarse" por sí sólo al sistema operativo. De esta manera, el propio sistema operativo es capaz de cargar los controladores adecuados.</P>
+<P>Finalmente, el dispositivo debe ser totalmente configurable desde el controlador del sistema operativo. Lo que incluye la selección de su rango de direcciones de entrada/salida e interrupciones a utilizar. Esto evita la intervención del usuario. Anteriormente, esta asignación era responsabilidad de la BIOS del ordenador, requiriendo una configuración manual en el sistema operativo.</P>
+
+   <H1>Otros</H1>
+
+
+
+
+   <H2>Bus MCA</H2>
+
+<P>El bus MCA es un bus creado por IBM con la intención de superar las limitaciones que presentaba el bus ISA.</P>
+<P>El gran problema de este bus es que no era compatible con los anteriores y necesitaba de tarjetas de expansión especialmente diseñadas para su estructura.</P>
+
+   <IMG src="bus MCA.jpg" alt="bus MCA" id="MCA">
+
+   <H2>Bus VESA</H2>
+
+<P>El bus VESA es un tipo de bus de datos para ordenadores personales, utilizado sobre todo en equipos diseñados para el procesador Intel 80486. Permite conectar directamente la tarjeta gráfica al procesador.</P>
+
+
+<P>Este bus es compatible con el bus ISA pero mejora la respuesta gráfica, solucionando el problema de la insuficiencia de flujo de datos de su predecesor. Para ello su estructura consistía en un extensión del ISA de 16 bits. Las tarjetas de expansión de este tipo eran enormes lo que, junto a la aparición del bus PCI, mucho más rápido en velocidad de reloj, y con menor longitud y mayor versatilidad, hizo desaparecer al VESA, aunque sigue existiendo en algunos equipos antiguos.</P>
+
+  <IMG src="bus VESA.jpg" alt="bus VESA" id="VESA">
+
+
+   <H2>Bus EISA</H2>
+
+<P>El Extended Industry Standard Architecture , casi siempre abreviado EISA, es una arquitectura de bus para computadoras compatibles con el IBM PC.Tuvo un uso limitado en computadores personales 386 y 486 hasta mediados de los años 1990, cuando fue reemplazado por los buses locales tales como el bus local VESA y el PCI.</P>
+
+<P>EISA amplía la arquitectura de bus ISA a 32 bits y permite que más de una CPU comparta el bus. El soporte de bus mastering también se mejora para permitir acceso hasta a 4 GB de memoria. A diferencia de MCA, EISA es compatible de forma descendente con ISA, por lo que puede aceptar tarjetas antiguas XT e ISA, siendo conexiones y las ranuras una ampliación de las del bus ISA.</P>
+<P>A pesar de ser en cierto modo inferior a MCA, el estándar EISA fue muy favorecido por los fabricantes debido a la naturaleza propietaria de MCA, e incluso IBM fabricó algunas máquinas que lo soportaban. Pero en el momento en el que hubo una fuerte demanda de un bus de estas velocidades y prestaciones, el bus local VESA y posteriormente el PCI llenaron este nicho y el EISA desapareció en la oscuridad.</P>
+<P>EISA introduce las siguientes mejoras sobre ISA:</P>
+<P>Direcciones de memoria de 32 bits para CPU, DMA, y dispositivos de bus master.</P>
+<P>Protocolo de transmisión síncrona para transferencias de alta velocidad.</P>
+<P>Traducción automática de ciclos de bus entre maestros y esclavos EISA e ISA.</P>
+<P>Soporte de controladores de periféricos maestros inteligentes.</P>
+33 MB/s de velocidad de transferencia para buses maestros y dispositivos DMA
+Interrupciones compartidas.</P>
+<P>Configuración automática del sistema y las tarjetas de expansión.</P>
+
+  <IMG src="bus EISA.jpg" alt="bus EISA" id="EISA">
+
+   <a class="subir" href="#ancla">Volver arriba</a>
+
+   
+
+   </BODY>
+</HTML>    

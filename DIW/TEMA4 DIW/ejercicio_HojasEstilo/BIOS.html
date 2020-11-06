@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>Elementos Hardware: La BIOS</TITLE>
+      <META http-equiv="Content-Type"content="text/html;charset=UTF-8">
+      <LINK href="BIOS.css" rel="stylesheet" type="text/css"> 
+   </HEAD>
+   <BODY>
+   <P><A name="ancla"></A></P>
+        <nav>
+                <ul>
+                        <a href="indice.html"><li>Índice</li></a>
+                        <a href="#"><li>BIOS</li></a>
+                        <a href="bus.html"><li>BUS</li></a>
+                        <a href="disco-duro.html"><li>Disco duro</li></a>
+                        <a href="memorias.html"><li>Memorias</li></a>
+                </ul>
+        </nav>
+      <H1>Menú Principal de la BIOS</H1>
+
+      <P>El sistema de entrada/salida básico (BIOS) es un programa que controla la comunicación entre todos los dispositivos de entrada y salida del sistema (como, por ejemplo, las unidades de disco, la pantalla, el teclado, el mouse y la impresora). Generalmente, el BIOS se encuentra en un chip de memoria de sólo lectura (ROM) en la placa base del equipo.</P>
+
+      <P>El sistema BIOS del equipo tiene una utilidad de configuración incorporada que permite que los usuarios controlen funciones especiales del equipo. Entre la información de configuración almacenada en el BIOS se incluye el tipo de dispositivos periféricos instalados, la secuencia de inicio del equipo y la cantidad de memoria del sistema y memoria ampliada. Cuando el sistema está apagado, una batería de la placa base conserva la información de configuración del BIOS.</P>
+
+      <IMG src="Menu BIOS.png" alt="Menú BIOS" id="BIOS">
+      
+      
+
+      <H1>Navegación por la BIOS</H1>
+      <TABLE summary="Tabla Memorias DDR SDRAM" border="3" frame="void" rules="all">
+			<CAPTION>Moverse por la BIOS</CAPTION>
+			<COL width="150" span="6">
+			<THEAD>
+				<TR>
+					<TH>Tecla del teclado</TH>
+					<TH>Descripción de la función</TH>
+					
+				</TR>
+			</THEAD>
+			<TFOOT>
+			</TFOOT>
+
+
+				<TR>
+					<TH>F1 o F10</TH>
+					<TD align="center">Entre a la Configuración en el logotipo rojo de Compaq o el logotipo azul de HP</TD>
+					
+				</TR>
+
+				<TR>
+					<TH>F1</TH>
+					<TD align="center">Ayuda para la configuración</TD>
+					
+				</TR>
+                                <TR>
+					<TH>Esc</TH>
+					<TD align="center">Salir de la configuración</TD>
+					
+				</TR>
+                                <TR>
+					<TH>Tecla de flecha hacia arriba o hacia abajo</TH>
+					<TD align="center">Seleccionar un elemento (mueve el cursor hacia arriba o hacia abajo)</TD>
+					
+				</TR>
+                                <TR>
+					<TH>Tecla de flecha hacia la izquierda o hacia la derecha</TH>
+					<TD align="center">Seleccionar una pantalla de menú distinta (mueve el cursor hacia la izquierda o la derecha)</TD>
+					
+				</TR>
+                                <TR>
+					<TH>+ o -</TH>
+					<TD align="center">Cambiar los valores del elemento seleccionado</TD>
+					
+				</TR>
+                                <TR>
+					<TH>Intro</TH>
+					<TD align="center">Seleccionar submenú</TD>
+					
+				</TR>
+                                <TR>
+					<TH>F5</TH>
+					<TD align="center">Cargar los valores predeterminados de configuración</TD>
+					
+				</TR>
+                                <TR>
+					<TH>F10</TH>
+					<TD align="center">Guardar los cambios y salir</TD>
+					
+				</TR>
+      </TABLE>
+      
+
+      <H1>Acceso al menú de Configuración del BIOS</H1>
+
+      <P>Hay por lo menos tres formas diferentes de acceder a los menús de configuración del BIOS, dependiendo del tipo de CPU, el BIOS, y la fecha de fabricación de la notebook. Para la mayoría de los modelos, después de pulsar el botón de encendido para encender el equipo, se muestra un indicación para especificar qué tecla pulsar para entrar en el BIOS o en las funciones de Windows o de diagnóstico. Para los equipos nuevos, será la tecla F10 o Esc . Sin embargo, en equipos muy antiguos, se le puede pedir que presione la tecla Supr para ingresar a la función de Configuración. Si no se pulsa la tecla sugerida en el momento adecuado y el equipo continúa el proceso de arranque, tendrá que apagar el equipo e intentar el proceso de arranque de nuevo.</P>
+
+      <DL>
+
+          <DD>Pre-UEFI, antes de 2008 para la mayoría de los modelos.</DD>
+          
+              <DT>Con el equipo apagado, presione el botón de encendido para encenderlo y pulse varias veces la tecla F10 . Normalmente, la pantalla de bienvenida de Compaq o HP mostrará un mensaje para que pulse F10 para entrar en el BIOS justo antes de que se muestre el menú del BIOS.</DT>
+
+          <DD>Con UEFI, 2008 a mediados de 2011 para la mayoría de los modelos.</DD>
+              <DT>Si el equipo tiene un entorno UEFI pre-BIOS, cuando aparece la pantalla de bienvenida HP o Compaq, se le pedirá que presione Escape para ingresar al menú de Inicio. Luego aparece un mensaje para que presione F10 para acceder a la Configuración del BIOS.</DT>
+
+          <DD>Inicio más corto sin pantalla de bienvenida, mediados de 2011 o posteriormente para la mayoría de los modelos.</DD>
+              <DT>Para ayudar a los equipos a iniciarse más rápido, en algunos modelos la pantalla de bienvenida de Compaq o HP no se muestra durante el proceso de arranque. En este caso, después de pulsar el botón de encendido, pulse varias veces la tecla Esc para entrar en el menú de inicio, y siga las indicaciones para presionar F10 e ingresar en la Configuración del BIOS.</DT>
+
+
+      <H1>Opciones del menú principal de la BIOS</H1>
+
+
+      <H2>Standard CMOS Setup</H2>
+
+      <P>Desde este menú se puede configurar la fecha y hora del equipo, y las unidades de disco duro y disquete conectadas al ordenador.</P>
+
+      <P>También podemos ver la cantidad de memoria instalada.</P>
+
+      <IMG src="standard-cmos.jpg" alt="standard-cmos" id="BIOS">
+
+      <H2>BIOS Features Setup</H2>
+   
+      <P>Desde aquí se configura la secuencia de arranque del ordenador, el estado del bloqueo numérico, control de acceso al disco duro y disquetes, elegir una contraseña cada vez que arranquemos el equipo o para entrar en el SETUP o si el sistema, al iniciarse, debe llevar a cabo el autochequeo opción Quick Boot.</P>
+
+      <IMG src="bios-features.jpg" alt="bios-features" id="BIOS">
+
+      <H2>Chipset Features Setup</H2>
+
+      <P>Son parámetros que afectan a la RAM y a veces al micro, a los buses AGP, PCI e ISA, y a otros  dispositivos, como los puertos serie o paralelo. Puede ser muy peligroso tocar estos parámetros.</P>
+
+      <IMG src="chipset-features.jpg" alt="chipset-features" id="BIOS">
+
+      <H2>Power Management Setup</H2>
+
+      <P>En este menú se configuran características de ahorro de energía.</P>
+
+      <IMG src="power-management.jpg" alt="power-management" id="BIOS">
+
+      <H2>PNP/PCI Configuration</H2>
+
+      <P> Desde aquí se puede determinar si las tarjetas de expansión deben configurarse desde la BIOS o desde el sistema operativo.</P>
+
+      <IMG src="pci-configuration.jpg" alt="pci-configuration" id="BIOS">
+ 
+      <H2>Load BIOS Defaults y Load Setup Defaults</H2>
+
+      <P>Carga valores por defecto de la CMOS.</P>
+
+      
+
+      <H2>Integrated Peripherals</H2>
+
+      <P>Desde aquí se pueden configurar todos los puertos y dispositivos que forman parte de la placa base. Por ejemplo, se puede desactivar la unidad de disquete.</P>
+
+      <IMG src="integrated-peripherals.jpg" alt="integrated-peripherals" id="BIOS">
+
+      <H2>Hardware Monitor Setup</H2>
+
+      <P>Se configuran parámetros que afectan al monitor.</P>
+
+      <IMG src="hardware-monitor.jpg" alt="hardware-monitor" id="BIOS">
+
+      <H2>Supervisor Password y User Password</H2>
+
+      <P>Permite definir una contraseña de supervisor y otra de usuario. El supervisor tiene acceso a todas las opciones del menú.</P>
+
+      <IMG src="supervisor-password.jpg" alt="supervisor-password" id="BIOS">
+
+      <H2>IDE HDD AUTO DETECTION</H2>
+
+      <P>Permite detectar automáticamente los discos duros instalados en el equipo.</P>
+
+      <IMG src="IDE-HDD.jpg" alt="IDE-HDD" id="BIOS">
+
+      <H2>Save & Exit Setup</H2>
+
+      <P>Se graban las modificaciones que se han hecho y se sale de la BIOS.</P>
+
+      <IMG src="save-&-exit.jpg" alt="save" id="BIOS">
+
+      <H2>Exit Without Saving</H2>
+
+      <P>Se sale de la BIOS sin grabar las modificaciones.Antes de hacer modificaciones sobre la BIOS, hemos de anotar en un papel los valores anteriores de los parámetros.La BIOS Phoenix presenta un menú diferente. Al entrar en la BIOS se accede al menú Main.</P>
+
+      <IMG src="exit-without.jpg" alt="exit-without" id="BIOS">
+
+      <P>Las opciones de menú que aparecen son las siguientes:</P>
+
+      <DL>
+
+         <DD>Main</DD>
+
+                      <DT>Desde este menú se puede configurar la fecha y hora del equipo, y las unidades de disco duro y disquete conectadas, el teclado numérico, las contraseñas de usuario y supervisor; aparece también la cantidad de memoria instalada en la máquina.</DT>
+         
+         <DD>Advanced</DD>
+
+                          <DT>Aparecen características del microprocesador.Desde aquí se pueden configurar las conexiones serie y paralelo de la placa.</DT>
+
+         <DD>Security</DD>
+
+                          <DT>Desde esta opción podemos configurar una contraseña para acceder al Setup y para impedir el acceso al sistema operativo.</DT>
+
+         <DD>Power</DD>
+
+                       <DT>Desde aquí se puede activar el modo de ahorro de energía del ordenador o parámetros que afectan al monitor.</DT>
+
+         <DD>Boot</DD>
+
+                       <DT>Desde este menú se configura el orden de acceso a las unidades para arrancar el sistema operativo o si el sistema al iniciarse debe llevar a cabo el autochequeo (opción Quick Power On Self Test).</DT>
+
+         <DD>Exit</DD>
+
+                     <DT>Nos permitirá salir de la BIOS guardando o descartando los cambios efectuados.</DT>
+
+
+      </DL>
+
+      <a class="subir" href="#ancla">Volver arriba</a>
+
+
+     
+
+   </BODY>
+</HTML>          
+

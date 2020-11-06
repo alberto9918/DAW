@@ -1,0 +1,80 @@
+body {
+    background-color: orange;
+}
+
+nav a li{
+    text-decoration:none;
+    color:magenta;
+    font-size:14px;
+}
+
+nav a li:active {
+    color: red;
+}
+
+nav a:visited{
+    color: green;
+}
+
+nav li{
+    display:inline-block;
+    width:15%;
+    padding:5px 10px;
+    background-color:#000;
+    border:1px solid #000;
+    text-align:center;
+    color:#fff;
+}
+
+nav li:hover{
+    background-color:#fff;
+    color:#000;
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    color: green;
+    background-color: white;
+}
+
+h2 {
+    color: brown;
+    text-decoration: underline;
+}
+
+p {
+    color: blue;
+    text-align: right;
+    font-size: 10pt;
+    font-family: Arial;
+}
+
+image {
+    height: 200px;
+    width: 200px;
+}
+
+h1:first-child+p:first-letter, h1:nth-of-type(2)+p:first-letter {
+    background-color: yellow;
+    color: #530885;
+}
+
+.subir{
+    font-family: serif;
+    font-size: 200%;
+    color: red;
+    text-decoration: none;
+}
+
+.subir:hover{
+    font-size: 300%;
+}
+
+.subir:visited{
+    color: white;
+    background-color: silver;
+}
