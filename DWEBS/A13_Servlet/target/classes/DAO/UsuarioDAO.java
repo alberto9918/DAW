@@ -192,20 +192,20 @@ public class UsuarioDAO implements DAO<Usuario>{
 		return usuarios;
 	}
 
-	public Usuario login(Object key,Object c) {
+	public Usuario login(Object userName,Object password) {
 		PreparedStatement ps;
 		ResultSet rs;
 		Connection con=null;
-		Usuario devuelve=null;
+		Usuario userLogueado=null;
 		
 		try {
 			con=origenDatos.getConnection();
 			ps = con.prepareStatement(SQL_LOGIN);
-			ps.setString(1, key.toString());
-			ps.setString(2, c.toString());
+			ps.setString(1, userName.toString());
+			ps.setString(2, password.toString());
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				devuelve = new Usuario(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+				userLogueado = new Usuario(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
 			}
 		} catch (SQLException e) {
 			System.out.println("error en Login de DAO");
@@ -216,7 +216,7 @@ public class UsuarioDAO implements DAO<Usuario>{
 				System.out.println("error al cerrar en Login de DAO");
 			}
 		}
-		return devuelve;
+		return userLogueado;
 	}
 
 	

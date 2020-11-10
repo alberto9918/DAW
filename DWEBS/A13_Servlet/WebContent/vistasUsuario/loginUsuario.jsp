@@ -10,11 +10,11 @@
 
 <h2 style="text-align: center;">Login del usuario</h2>
 	
-	<form name="formulario" action="Recoge_datos.jsp" method="POST">
+	<form name="formulario" action="../Controlador_LoginUsuario" method="POST">
 		
 		<p>
 			<label for="usuario">Usuario: </label>
-			<input type="text" name="usuario">
+			<input type="text" name="userName">
 		</p>
 		
 		<p>
