@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Posición en pantalla</title>
+  </head>
+
+  <body>
+    <div id="posicion"></div>
+
+    <script>
+      var posicion = document.getElementById('posicion');
+
+      document.addEventListener('mousemove', function(e) {
+          posicion.innerHTML = 'Posición X : ' + e.clientX + 'px<br />Posición Y : ' + e.clientY + 'px';
+      }, false);
+    </script>
+  </body>
+</html>

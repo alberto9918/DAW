@@ -1,0 +1,38 @@
+.cuadradoAzul {
+    width: 100px; 
+    height: 100px; 
+    background: blue;
+    float: left;
+}
+
+.cuadradoAmarillo {
+    width: 100px; 
+    height: 100px; 
+    background: yellow;
+    margin-left: 20px;
+    float: left;
+}
+
+.cuadradoRojo {
+    width: 100px; 
+    height: 100px; 
+    background: red;
+    margin-left: 20px;
+    float: left;
+}
+
+.cuadradoVerde {
+    width: 100px; 
+    height: 100px; 
+    background: greenyellow;
+    margin-left: 20px;
+    float: left;
+}
+
+.cuadradoCian {
+    width: 100px; 
+    height: 100px; 
+    background: cyan;
+    margin-left: 20px;
+    float: left;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 2</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+    <h2>Al pulsar el botón se debe desencadenar la función</h2>
+    <input type="button" id="boton" value="Púlsame" onclick="agregarTexto(this)"/>
+
+	<script>
+
+		function agregarTexto(objeto){
+            objeto.insertAdjacentHTML('afterend', '<p id="texto">¡Hola Mundo!</p>');
+		}
+				
+	</script>
+</body>
+</html>

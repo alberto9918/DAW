@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Que se ejecuta antes en los Eventos</title>
+	<meta charset="UTF-8">
+
+</head>
+<body>
+	<a href="http://www.iesjulioverne.es" id="miEnlace">Enlace</a>
+	<script>
+		//funcion anonima para ejecutar el evento onclick
+		document.getElementById("miEnlace").onclick = function(){
+			//Esto se ejecutara antes que el propio enlace del que es llamado.
+			//Por tanto la pagina de google saldra antes que la del iescamas
+			this.href="http://www.google.com";
+			//Si quiero que no se ejecute el enlace de un elemento html 
+			//Para ello hacemos que el gestor de eventos devuelva un valor booleano false
+			//Y asi no se ejecutara ninguno de los eventos, ni el del onclick ni el del <a href>
+			//Prueba el codigo primero sin el return y despues con el return
+			return false;
+		}
+		//Como vemos, el onclick se ejecutara antes que el href
+	</script>
+		
+	<input type="button" id="miBoton" value="pulsar" />
+	
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ratón desplazándose</title>
+    
+    <style>
+      #padre1, #padre2 {
+        position: absolute;
+        top: 100px; left: 50px;
+        padding: 40px 0 0 25px;
+        width: 175px; height: 160px;
+        background-color: red;
+        color: white;
+      }
+
+      #padre2 {
+        left: 350px;
+      }
+
+      #hijo1, #hijo2 {
+        position: absolute;
+        right: 20px; bottom: 20px;
+        padding-top: 27px;
+        width: 80px; height: 53px;
+        background-color: blue;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="result"></p>
+
+    <div id="padre1">
+      padre N°1<br />
+      Ratón sobre el hijo
+      <div id="hijo1">Hijo N°1</div>
+    </div>
+    
+    <div id="padre2">
+      padre N°2<br />
+      Ratón fuera del hijo
+      <div id="hijo2">hijo N°2</div>
+    </div>
+
+    <!-- FIN HTML  // INICIO JAVASCRIPT -->
+
+    <script>
+      var hijo1 = document.getElementById('hijo1'),
+          hijo2 = document.getElementById('hijo2'),
+          result = document.getElementById('result');
+      
+      hijo1.addEventListener('mouseover', function(e) {
+          result.innerHTML = "El elemento se ha dejado justo antes de que el cursor entre en el hijo # 1 es: " + e.relatedTarget.id;
+      }, false);
+      
+      hijo2.addEventListener('mouseout', function(e) {
+          result.innerHTML = "El elemento sobrevoló justo después de que el cursor ha dejado el hijo # 2 es : " + e.relatedTarget.id;
+      }, false);
+    </script>
+  </body>
+</html>

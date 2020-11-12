@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Códigos teclas</title>
+
+    <style>
+      table {
+        margin-top: 20px;
+      }
+
+      td {
+        padding: 5px;
+        border: 1px solid black;
+      }​
+    </style>
+  </head>
+
+  <body>
+	<p>Escribe en la caja de texto letras mayúsculas y minúsculas, numeros, símbolos y prueba a pulsar las teclas CTRL, ALT y SHIFT. Verás como cambia el código en cada uno de los eventos de teclado.</p>
+    <p>
+      <input id="field" type="text" />
+    </p>
+
+    <table>
+      <tr>
+        <td>keydown</td>
+        <td id="down"></td>
+      </tr>
+      <tr>
+        <td>keypress</td>
+        <td id="press"></td>
+      </tr>
+      <tr>
+        <td>keyup</td>
+        <td id="up"></td>
+      </tr>
+    </table>
+
+    <script>
+      var field = document.getElementById('field'),
+          down = document.getElementById('down'),
+          press  = document.getElementById('press'),
+          up  = document.getElementById('up');
+    
+      document.addEventListener('keydown', function(e) {
+          down.innerHTML = e.keyCode;
+      }, false);
+    
+      document.addEventListener('keypress', function(e) {
+          press.innerHTML = e.keyCode;
+      }, false);
+    
+      document.addEventListener('keyup', function(e) {
+          up.innerHTML = e.keyCode;
+      }, false);
+    </script>​
+  </body>
+</html>

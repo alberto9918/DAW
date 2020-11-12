@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 3</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+    <h2>El elemento span debe hacer algo cuando pases el ratón sobre él</h2>
+    <span id="boton" onmouseover="cambiarColor(this)" onmouseout="colorOriginal(this)">¡Ratón sobre mí!</span>
+
+	<script>
+
+		function cambiarColor(objeto){
+            objeto.style.color = 'red';
+		}
+
+        function colorOriginal(objeto){
+            objeto.style.color = 'black';
+        }
+				
+	</script>
+</body>
+</html>

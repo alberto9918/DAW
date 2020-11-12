@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestor de Eventos</title>
+	<meta charset="UTF-8">
+	<script>
+		//Otra alternativa es envolver el gestor de eventos con window.onload()
+		function alertaBoton(){
+			alert("Has pulsado el boton");
+		}
+		window.onload = function(){
+			//Incluimos el getElementById dentro de una funcion anonima, que asignamos al window.onload
+			//Asi tambien nos aseguramos de que no se ejecute hasta que se cargue totalmente el documento
+			document.getElementById("miBoton").onclick=alertaBoton;
+		}
+	</script>
+</head>
+<body>
+	
+		
+	<input type="button" id="miBoton" value="pulsar" />
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestor de Eventos</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+	<input type="button" id="miBoton" value="pulsar" />
+
+	<script>
+		//El evento que se va a producir es onclick
+		//Funcion que se va a ejecutar con el evento.
+		function alertaBoton(){
+			alert("Has pulsado el boton");
+		}
+		//Si queremos acceder al elemento boton desde dentro del JavaScript
+		//para ello usamos el metodo getElementById(), para ello eliminamos el onclick
+		//Y asi separamos claramente lo que es JavaScript y Html
+		
+		document.getElementById("miBoton").onclick=alertaBoton;
+		//El evento onclick aplicado a "miBoton"
+		//Al evento onclick le asignamos la funcion, no la llamada, por eso no lleva()
+		//Ya que sino  se ejecutaria en el momento en que se cargara el codigo JavaScript
+		
+		//La ejecucion de esta pagina da un problema ya que se carga antes el script y el boton 
+		//antes de cargarse la pagina html, por ello, vamos a cargar el script antes de /body para evitar que se cargue antes
+		
+	</script>
+</body>
+</html>
