@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,10 @@
 <title>Actualizar usuario</title>
 </head>
 <body>
-<c:set var="usu" value="${requestScope.usuarioBuscado}"/>
 
 <h2 style="text-align: center;">Teclee nombre y contraseña del usuario a modificar</h2>
 	
-	<form name="formulario" action="../Controlador_BuscarUsuarioActualizar" method="POST">
+	<form name="formulario" action="${pageContext.request.contextPath}/Controlador_ActualizarUsuario" method="POST">
 		
 		<p>
 			<label for="usuario">Usuario: </label>
@@ -25,11 +25,11 @@
 		
         <p>
             <input type="reset" value="Borrar">
-            <input type="submit" value="Buscar usuario">
+            <input type="submit" name="botonBusca" id="botonBusca" value="Buscar usuario">
         </p>
-    </form>
+        
+        <c:set var="usu" value="${sessionScope.usuarioEncontrado}"/>
     
-    <form name="formulario" action="../Controlador_ActualizarUsuario" method="POST">
     
     	<p>
 			<label for="name">Id del usuario: </label>
@@ -68,7 +68,7 @@
 		
         <p>
             <input type="reset" value="Borrar">
-            <input type="submit" value="Actualizar usuario">
+            <input type="submit" name="botonActualizar" id="botonActualizar" value="Actualizar usuario">
         </p>
     </form>
 

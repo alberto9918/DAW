@@ -26,17 +26,7 @@ public class Controlador_ActualizarUsuario extends HttpServlet {
 	
 	private UsuarioDAO usuarioDAO;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Controlador_ActualizarUsuario() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//recibo los parámetros del formulario
 		try {
@@ -44,7 +34,16 @@ public class Controlador_ActualizarUsuario extends HttpServlet {
 		}catch (Exception e){
 			throw new ServletException();
 		}
-		request.setCharacterEncoding("UTF-8");
+		
+		Usuario u = null;
+		
+		if("Buscar usuario".equals(request.getParameter("botonBusca"))) {
+			buscarUsuario(u, request,response);
+		}else if("Actualizar usuario".equals(request.getParameter("botonActualizar"))){
+			System.out.println("Entra en actualiza después de buscar");
+			actualizarUsuario(u,request,response);
+		}
+		/*request.setCharacterEncoding("UTF-8");
 		
 		Long id = Long.parseLong(request.getParameter("idUsuario"));
 		String nombre=request.getParameter("nombre");
@@ -62,7 +61,7 @@ public class Controlador_ActualizarUsuario extends HttpServlet {
 			}
 		}	
 		else
-					request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
+					request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);*/
 	}
 
 	/**
@@ -72,5 +71,42 @@ public class Controlador_ActualizarUsuario extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	protected void buscarUsuario (Usuario u, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String usuario = request.getParameter("userName");
+		String password = request.getParameter("password");
+		
+		if(!usuario.isEmpty() && !password.isEmpty()) {
+			u = usuarioDAO.login(usuario, password);
+			if(u != null) {
+				request.getSession().setAttribute("usuarioEncontrado", u);
+				
+				System.out.println(u);
+				
+				//request.getRequestDispatcher("vistasUsuario/")
+				
+				
+			}
+		}
+	}
+	
+	protected void actualizarUsuario (Usuario u, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		u = (Usuario)request.getSession().getAttribute("usuarioEncontrado");
+		
+		System.out.println("Lleha a mostrar u: " + u);
+		
+		if(u != null) {
+			Usuario u2 = new Usuario(Long.parseLong(request.getParameter("idUsuario")),
+					request.getParameter("nombre"),
+					request.getParameter("apellidos"),
+					request.getParameter("userName"),
+					request.getParameter("password"),
+					request.getParameter("pais"),
+					request.getParameter("tecnologia"));
+			request.getSession().setAttribute("usuarioEncontrado", new Usuario());
+		}
+	}
+
 
 }
