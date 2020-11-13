@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 4 W3</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+    <img id="imagen" src="ejer4img/eugimlogo.gif">
+
+	<script>
+
+        document.getElementById("imagen").addEventListener('mouseover', function(){
+            this.src = "ejer4img/eugimlogo2.gif";
+        },false);
+
+        document.getElementById("imagen").addEventListener('mouseout', function(){
+            this.src = "ejer4img/eugimlogo.gif";
+        },false);
+		
+	</script>
+</body>
+</html>

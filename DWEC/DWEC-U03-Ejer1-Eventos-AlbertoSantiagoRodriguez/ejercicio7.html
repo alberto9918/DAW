@@ -8,25 +8,33 @@
 <body>
 		
     <div class="cuadradoAzul" id="cuadradoAzul" onmouseover="cambiarColorFondo(this)" onmouseout="ponerColorFondoOriginal()"></div>
-    <div class="cuadradoAmarillo" id="cuadradoAmarillo"></div>
-    <div class="cuadradoRojo" id="cuadradoRojo"></div>
-    <div class="cuadradoVerde" id="cuadradoVerde"></div>
-    <div class="cuadradoCian" id="cuadradoCian"></div>
+    <div class="cuadradoAmarillo" id="cuadradoAmarillo" onmouseover="cambiarColorFondo(this)" onmouseout="ponerColorFondoOriginal()"></div>
+    <div class="cuadradoRojo" id="cuadradoRojo" onmouseover="cambiarColorFondo(this)" onmouseout="ponerColorFondoOriginal()"></div>
+    <div class="cuadradoVerde" id="cuadradoVerde" onmouseover="cambiarColorFondo(this)" onmouseout="ponerColorFondoOriginal()"></div>
+    <div class="cuadradoCian" id="cuadradoCian" onmouseover="cambiarColorFondo(this)" onmouseout="ponerColorFondoOriginal()"></div>
 
 
 	<script>
 
 		function cambiarColorFondo(objeto){
-            var color = objeto.style.background;
-            document.body.style.backgroundColor = "red";
+            let element = document.getElementById(objeto.getAttribute('id'));
+            let elementStyle = window.getComputedStyle(element);
+            let elementColor = elementStyle.getPropertyValue('background-color');
+
+            document.body.style.backgroundColor = elementColor;
 		}
 
         function ponerColorFondoOriginal(){
             document.body.style.backgroundColor = "white";
         }
 
+        window.onload = function(){
+            alert('Bienvenido')
+        }
         
-				
+		window.onbeforeunload = function(){
+            alert("Adiós")
+        };	
 	</script>
 </body>
 </html>

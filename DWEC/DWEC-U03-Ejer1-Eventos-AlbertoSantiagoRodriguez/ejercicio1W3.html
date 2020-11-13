@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 1 W3</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+    <h2>El elemento p debe hacer algo cuando pulses en él.</h2>
+    <p id="texto">Púlsame</p>
+
+	<script>
+
+        document.getElementById("texto").addEventListener('click', function(){
+            this.innerHTML = "¡BUEN TRABAJO!"
+        },false);
+
+		
+	</script>
+</body>
+</html>

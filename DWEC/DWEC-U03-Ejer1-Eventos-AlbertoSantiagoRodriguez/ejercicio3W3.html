@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 3 W3</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+		
+    <h2>El elemento span debe hacer algo cuando pases el ratón sobre él</h2>
+    <span id="boton">¡Ratón sobre mí!</span>
+
+	<script>
+
+        document.getElementById("boton").addEventListener('mouseover', function(){
+            this.style.color = 'red';
+        },false);
+
+        document.getElementById("boton").addEventListener('mouseout', function(){
+            this.style.color = 'black';
+        },false);
+		
+	</script>
+</body>
+</html>

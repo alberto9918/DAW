@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 6</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/ejercicio7.css" media="screen"/>
+</head>
+<body>
+		
+    <img src="ejer4img/load.jpg" alt="loading" id="carga">
+
+
+	<script>
+
+        onload(cargarDocumento());
+
+        function cargarDocumento(){
+            setTimeout(function(){
+                document.body.removeChild(document.getElementById("carga"))
+                let p = document.createElement("p");
+                p.textContent = "TEXTO MOSTRADO DESPUÉS DE CARGAR LA PÁGINA";
+                p.id = "textoCargado"
+                document.body.appendChild(p);
+            },2000)
+        }
+
+	</script>
+</body>
+</html>
