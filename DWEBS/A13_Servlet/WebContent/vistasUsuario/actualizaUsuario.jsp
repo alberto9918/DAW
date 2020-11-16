@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Actualizar usuario</title>
+	<meta charset="UTF-8">
+	<title>Actualizar usuario</title>
+	<!--  <script src="${pageContext.request.contextPath}/resources/js/botonActualiza.js"
+	 type="text/javascript"></script> -->
 </head>
 <body>
 

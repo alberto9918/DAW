@@ -1,9 +1,11 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +39,38 @@ public class ProductoDAO implements DAO<Producto> {
 	//MÉTODOS
 	@Override
 	public boolean create(Producto c) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		Connection con=null;
+		// con es mi conexion
+		
+			try {
+				con=origenDatos.getConnection();
+				ps = con.prepareStatement(SQL_INSERT);
+				
+				ps.setString(1, c.getCodProd());
+				ps.setString(2, c.getSeccion());
+				ps.setString(3, c.getNombreProd());
+				ps.setDouble(4, c.getPrecio());
+				ps.setDate(5, Date.valueOf(c.getFecha()));
+				ps.setBoolean(6, c.getImportado());
+				ps.setString(7, c.getPais());
+				
+				if (ps.executeUpdate() > 0){
+					
+					return true;
+				}
+					
+			}  finally{
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+				
+			return false;
 	}
 
 	@Override

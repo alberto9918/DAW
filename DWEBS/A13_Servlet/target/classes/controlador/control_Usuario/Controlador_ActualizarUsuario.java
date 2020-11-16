@@ -105,6 +105,13 @@ public class Controlador_ActualizarUsuario extends HttpServlet {
 					request.getParameter("pais"),
 					request.getParameter("tecnologia"));
 			request.getSession().setAttribute("usuarioEncontrado", new Usuario());
+			if(usuarioDAO.update(u2)) {
+				request.getRequestDispatcher("vistasUsuario/exito.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
+			}
+		}else {
+			request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
 		}
 	}
 

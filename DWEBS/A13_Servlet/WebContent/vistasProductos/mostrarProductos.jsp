@@ -34,6 +34,9 @@
     </table>
     <br>
     <a href="tratarUsuarios.html">Inicio</a>
+    <button type="button">
+    	<a onclick="window.location.href='vistasProductos/insertaProducto.jsp'">Insertar nuevo producto</a>
+    </button>
 
 </body>
 </html>

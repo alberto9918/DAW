@@ -7,10 +7,10 @@
 <title>Registro</title>
 </head>
 <body>
-	<h2 style="text-align: center;">Registro del usuario</h2>
+	<h2 style="text-align: center;">Insertar nuevo producto</h2>
 	
 	<form name="formulario" action="../Controlador_Productos" method="POST">
-	
+		<input type="hidden" name="instruccion" value="insertar">
 		<p>
 			<label for="codProd">CodProd: </label>
 			<input type="text" name="codProd">
