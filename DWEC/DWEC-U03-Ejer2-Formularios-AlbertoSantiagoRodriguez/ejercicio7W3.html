@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 7</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/ejercicio7.css" media="screen"/>
+</head>
+<body>
+		
+    <div class="cuadradoAzul" id="cuadradoAzul"></div>
+    <div class="cuadradoAmarillo" id="cuadradoAmarillo"></div>
+    <div class="cuadradoRojo" id="cuadradoRojo"></div>
+    <div class="cuadradoVerde" id="cuadradoVerde"></div>
+    <div class="cuadradoCian" id="cuadradoCian"></div>
+
+
+	<script>
+
+        var cuadradados = document.getElementsByTagName("div");
+
+        for (let i = 0; i < cuadradados.length; i++) {
+            cuadradados[i].addEventListener('mouseover', function(){
+                let element = document.getElementById(cuadradados[i].getAttribute('id'));
+                let elementStyle = window.getComputedStyle(element);
+                let elementColor = elementStyle.getPropertyValue('background-color');
+
+                document.body.style.backgroundColor = elementColor;
+            },false);
+
+            cuadradados[i].addEventListener('mouseout', function(){
+                document.body.style.backgroundColor = "white";
+            },false);
+            
+        }
+
+        window.onload = function(){
+            alert('Bienvenido')
+        }
+        
+		window.onbeforeunload = function(){
+            alert("Adiós")
+        };	
+	</script>
+</body>
+</html>

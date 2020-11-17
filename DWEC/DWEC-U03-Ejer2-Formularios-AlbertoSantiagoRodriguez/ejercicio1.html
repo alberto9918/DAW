@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 1</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <form action="" id="modificarNumero" name="modificarNumero">
+        <button type="button" id="decremento">&lt;-</button>
+        <input type="text" name="numero" id="numero" value="0">
+        <button type="button" id="incremento">-&gt;</button>
+
+        <br><br>
+
+        <label for="limiteSup">Límite superior:</label>
+        <input type="text" name="limiteSup" id="limiteSup">
+
+        <br><br>
+        <label for="limiteInf">Límite inferior</label>
+        <input type="text" name="limiteInf" id="limiteInf">
+    </form>
+		
+   
+	<script>
+        var formulario = document.getElementById("modificarNumero");
+        var numero = document.getElementById("numero");
+        var limiteSup = document.getElementById("limiteSup");
+        var limiteInf = document.getElementById("limiteInf");
+
+        formulario.incremento.addEventListener("click",function(){ 
+            if(numero.value == limiteSup.value){
+                alert("Intentas sobrepasar el límite superior indicado.");
+            }else{
+                numero.value++;
+            }
+        },false);
+
+        formulario.decremento.addEventListener("click", function(){
+            if(numero.value == limiteInf.value){
+                alert("Intentas sobrepasar el límite inferior indicado.");
+            }else{
+                numero.value--;
+            }
+        },false); 
+        
+	</script>
+</body>
+</html>

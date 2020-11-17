@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 3</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <form action="" id="copiarTexto" name="copiarTexto">
+        <label for="cuadroTexto1">Primer cuadro de texto</label><br>
+        <textarea name="cuadroTexto1" id="cuadroTexto1" cols="30" rows="10" form="copiarTexto"></textarea><br><br>
+
+        <label for="cuadroTexto2">Segundo cuadro de texto</label><br>
+        <textarea name="cuadroTexto2" id="cuadroTexto2" cols="30" rows="10" form="copiarTexto"></textarea>
+    </form>
+		
+   
+	<script>
+
+        var cuadroTexto1 = document.getElementById("cuadroTexto1");
+        var cuadroTexto2 = document.getElementById("cuadroTexto2");
+
+        cuadroTexto1.addEventListener("blur", function(){
+            cuadroTexto2.value = cuadroTexto1.value
+        }, false);
+        
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 2</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <form action="" id="modificarTitulo" name="modificarTitulo">
+        <input type="button" id="boton1" name="boton" value="BOTON 1"><br>
+        <input type="button" id="boton2" name="boton" value="BOTON 2"><br>
+        <input type="button" id="boton3" name="boton" value="BOTON 3"><br>
+        <input type="button" id="boton4" name="boton" value="BOTON 4"><br>
+        <input type="button" id="boton5" name="boton" value="BOTON 5"><br>
+    </form>
+		
+   
+	<script>
+
+        var botones = document.getElementsByName("boton");
+
+        for (let i = 0; i < botones.length; i++) {
+            botones[i].addEventListener("click", function(){
+                document.title = botones[i].value
+            }, false);
+            
+        } 
+        
+	</script>
+</body>
+</html>
