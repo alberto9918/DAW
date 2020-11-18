@@ -1,0 +1,43 @@
+.error{
+    color:red;
+}
+
+body,html{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+body{
+    background-color: rgb(172, 169, 169);
+}
+
+#formulario{
+    background-color: white;
+    border-top: 5px solid blue;
+    border-radius: 5px;
+    padding: 17px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+input, textarea{
+    border: 1px solid blue;
+    width: 100%;
+    padding: 15px;
+}
+
+.enviar{
+    border: initial;
+    border-radius: 3px;
+    width: 50%;
+    position: relative;
+    left: 50%;
+    background-color: orangered;
+    color: white;
+}
