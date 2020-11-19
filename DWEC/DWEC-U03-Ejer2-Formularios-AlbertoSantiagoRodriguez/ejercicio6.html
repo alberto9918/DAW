@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 6</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <form action="" id="ordenarTextArea" name="ordenarTextArea">
+        <input type="text" placeholder="Texto" name="texto" id="texto">
+        <input type="button" id="enviar" name="boton" value="enviar"><br><br>
+
+        <label for="textoNoOrd">Área de texto sin ordenar</label><br>
+        <textarea name="textoNoOrd" id="textoNoOrd" cols="30" rows="10" form="ordenarTextArea" readonly></textarea>
+        <input type="button" id="ordenar" name="boton" value="ordenar"><br><br>
+
+        <label for="textoOrd">Área de texto ordenado</label><br>
+        <textarea name="textoOrd" id="textoOrd" cols="30" rows="10" form="ordenarTextArea" readonly></textarea><br><br>
+
+        <input type="number" placeholder="Línea que desea borrar" name="borrarLinea" id="borrarLinea">
+        <input type="button" id="borrar" name="boton" value="borrar"><br><br>
+    </form>
+		
+   
+	<script>
+
+        var texto = document.getElementById("texto");
+        var textoNoOrd = document.getElementById("textoNoOrd");
+        var textoOrd = document.getElementById("textoOrd");
+        var lineaABorrar = document.getElementById("borrarLinea");
+
+        var contenido = [];
+
+        var btnEnviar = document.getElementById("enviar");
+        var btnOrdenar = document.getElementById("ordenar");
+        var btnBorrar = document.getElementById("borrar");
+
+        btnEnviar.addEventListener("click", function(){
+            contenido.push(texto.value);
+            textoNoOrd.value += texto.value + "\n";
+        }, false);
+
+        btnOrdenar.addEventListener("click", function(){
+            contenido.sort();
+            
+            for (let i = 0; i < contenido.length; i++) {
+                textoOrd.value += contenido[i] + "\n";
+            }
+        },false);
+
+        btnBorrar.addEventListener("click", function(){
+            contenido.splice(1, 1);
+
+            textoOrd.value = '';
+
+            for (let i = 0; i < contenido.length; i++) {
+                textoOrd.value += contenido[i] + "\n";
+            }
+        },false);
+        
+	</script>
+</body>
+</html>
