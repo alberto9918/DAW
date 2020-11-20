@@ -42,8 +42,8 @@
 		
 		<p>
 			<label for="importado">Importado:</label>
-            <input type="radio" id="importado" name="importado" value="y" required>Sí
-            <input type="radio" id="importado" name="importado" value="f" required>No
+            <input type="radio" id="importado" name="importado" value="true" required>Sí
+            <input type="radio" id="importado" name="importado" value="false" required>No
 		</p>
 		
 		<p>

@@ -50,6 +50,8 @@ public class Controlador_Productos extends HttpServlet {
 					throw new ServletException();
 				}
 				
+				request.setCharacterEncoding("UTF-8");
+				
 				String comando = request.getParameter("instruccion");
 				
 				if(comando==null) {comando = "listar";}
@@ -61,15 +63,17 @@ public class Controlador_Productos extends HttpServlet {
 					case "insertar":
 						insertarProducto(request,response);
 						break;
+						
+					case "eliminar":
+						eliminarProducto(request,response);
+						break;
 					
 					default:
 						listarProductos(request,response);
 				}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
@@ -98,7 +102,7 @@ public class Controlador_Productos extends HttpServlet {
 		}catch (Exception e){
 			throw new ServletException();
 		}
-		request.setCharacterEncoding("UTF-8");
+
 		String codProd=request.getParameter("codProd");
 		String seccion=request.getParameter("seccion");
 		String nombreProd=request.getParameter("nombreProd");
@@ -111,14 +115,24 @@ public class Controlador_Productos extends HttpServlet {
 			
 			Producto p=new Producto(codProd,seccion,nombreProd,precio,fecha,importado,pais);
 			try {
-				if (productoDAO.create(p))
-						request.getRequestDispatcher("vistasUsuario/exito.jsp").forward(request, response);
+				this.productoDAO.create(p);
+				
 			} catch (SQLException e) {
 				request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
 			}
-		}	
-		else
-					request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
+		}
+					
+		
+		listarProductos(request, response);
+	}
+	
+	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		String codProd = request.getParameter("codProducto");
+		productoDAO.delete(codProd);
+		listarProductos(request, response);
+		
 	}
 
 }

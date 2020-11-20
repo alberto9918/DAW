@@ -19,8 +19,14 @@
             <td>FECHA</td>
             <td>IMPORTADO</td>
             <td>PAÍS</td>
+            <td>ACCIONES</td>
         </tr>
         <c:forEach var="producto" items="${requestScope.listaProductos}">
+        	<!-- LINK PARA BORRAR -->
+        	<c:url var="linkTempEliminar" value="Controlador_Productos">
+        		<c:param name="instruccion" value="eliminar"></c:param>
+        		<c:param name="codProducto" value="${producto.codProd}"></c:param>
+        	</c:url>
             <tr>
                 <td>${producto.codProd}</td>
                 <td>${producto.seccion}</td>
@@ -29,12 +35,17 @@
                 <td>${producto.fecha}</td>
                 <td>${producto.importado}</td>
                 <td>${producto.pais}</td>
+                <td>
+                	<a href="${linkTemp}">Actualizar</a>&nbsp;&nbsp;
+                	<a href="${linkTempEliminar}">Eliminar</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
     <br>
     <a href="tratarUsuarios.html">Inicio</a>
     <button type="button">
+    	<!-- Con lo siguiente consigues que en la url aparezca el nombre de la vista -->
     	<a onclick="window.location.href='vistasProductos/insertaProducto.jsp'">Insertar nuevo producto</a>
     </button>
 
