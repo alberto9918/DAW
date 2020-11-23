@@ -22,6 +22,13 @@
             <td>ACCIONES</td>
         </tr>
         <c:forEach var="producto" items="${requestScope.listaProductos}">
+        
+        	<!-- Actualizar producto--> 
+			<c:url var="linkEdit" value="Controlador_Productos">
+				<c:param name="instruccion" value="cargarParaActualizar"></c:param>
+				<c:param name="codProducto" value="${producto.codProd}"></c:param>
+			</c:url>
+        
         	<!-- LINK PARA BORRAR -->
         	<c:url var="linkTempEliminar" value="Controlador_Productos">
         		<c:param name="instruccion" value="eliminar"></c:param>
@@ -36,7 +43,7 @@
                 <td>${producto.importado}</td>
                 <td>${producto.pais}</td>
                 <td>
-                	<a href="${linkTemp}">Actualizar</a>&nbsp;&nbsp;
+                	<a href="${linkEdit}">Actualizar</a>&nbsp;&nbsp;
                 	<a href="${linkTempEliminar}">Eliminar</a>
                 </td>
             </tr>

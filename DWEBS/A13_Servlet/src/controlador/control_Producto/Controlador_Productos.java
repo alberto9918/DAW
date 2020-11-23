@@ -67,16 +67,54 @@ public class Controlador_Productos extends HttpServlet {
 					case "eliminar":
 						eliminarProducto(request,response);
 						break;
-					
+					case "cargarParaActualizar":
+						cargarProducto(request, response);
+						break;
+					case "actualizar":
+						actualizarProducto(request, response);
+						break;
 					default:
 						listarProductos(request,response);
 				}
 	}
 
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private void cargarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ENTRA EN EL METODO CARGAR PRODUCTO");
+		Producto p = productoDAO.read(request.getParameter("codProducto"));
+		
+		if (p != null) {
+			request.getSession().setAttribute("productoEncontrado", p);
+			System.out.println(p);
+			request.getRequestDispatcher("vistasProductos/actualizaProducto.jsp").forward(request, response);
+		} else
+			request.getRequestDispatcher("vistasUsuario/error.jsp").forward(request, response);
+		
+	}
+	
+	private void actualizarProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String codigo = request.getParameter("codProd");
+		String seccion = request.getParameter("seccion");
+		String nombre = request.getParameter("nombreProd");
+		Double precio = Double.parseDouble(request.getParameter("precio"));
+		LocalDate fecha = LocalDate.parse(request.getParameter("fecha"));
+		Boolean importado = Boolean.parseBoolean(request.getParameter("importado"));
+		String pais = request.getParameter("pais");
+		
+		Producto editar = new Producto(codigo, seccion, nombre, precio, fecha, importado, pais);
+
+		request.getSession().setAttribute("productoEncontrado", new Usuario());
+		
+		System.out.println("PRODUCTO EDITADO: "+editar);
+		if (productoDAO.update(editar)) {
+			listarProductos(request, response);
+		}
+		
 	}
 	
 	protected void listarProductos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -129,6 +167,7 @@ public class Controlador_Productos extends HttpServlet {
 	}
 	
 	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		System.out.println("ENTRA EN EL METODO ELIMINAR PRODUCTO");
 		String codProd = request.getParameter("codProducto");
 		productoDAO.delete(codProd);
 		listarProductos(request, response);
