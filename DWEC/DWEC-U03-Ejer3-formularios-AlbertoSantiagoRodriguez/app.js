@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }, false);
 
 var incremento = 0;
+var intento = document.createElement("p");
 
 function validarFormulario(evento) {
         evento.preventDefault();
@@ -30,7 +31,7 @@ function validarFormulario(evento) {
         var provincia = document.getElementById('provincia');
         var fecha = document.getElementById('fecha');
         var telefono = document.getElementById('telefono');
-        var hora = document.getElementById('hora').value;
+        var hora = document.getElementById('hora');
 
         nombre.setAttribute("class","");
 
@@ -70,16 +71,30 @@ function validarFormulario(evento) {
                 provincia.setAttribute("class","error");
         }
 
+        if(!comprobarFecha(fecha.value)){
+                campos['fecha'] = 'La fecha introducida no tiene formato válido';
+                fecha.setAttribute("class","error");
+        }
+
         if(!comprobarTelefono(telefono.value)){
                 campos['telefono'] = 'El teléfono introducido no es válido.';
                 telefono.setAttribute("class","error");
         }
+
+        if(!comprobarHora(hora.value)){
+                campos['hora'] = 'La hora indicada no es válida.';
+                hora.setAttribute("class","error");
+        }
+
 
         
         //Con este bloque se indica que en el caso de que el array de campos no esté vacío, es decir,
         //que existan errores en la validación, se muestren todos los mensajes de error guardados en 
         //ese array, y que no permita enviar el formulario.
         if(Object.keys(campos).length !== 0){
+                intento.innerHTML = "intento número: " + incremento;
+                intentos.appendChild(intento);
+                
                 for (var campo in campos) {
                         let nodo = document.createElement("p");
                         nodo.innerHTML = campos[campo];
@@ -147,5 +162,39 @@ function comprobarTelefono(telefono){
                 return true;
         }else{
                 return false;
+        }
+}
+
+function comprobarFecha(fecha){
+        let exp_reg_barras = /^\d{1,2}\/\d{1,2}\/\d{4}$/; //Comprobar si la fecha tiene patrón dd/mm/aaaa
+        let exp_reg_guiones = /^\d{1,2}-\d{1,2}-\d{4}$/; //Comprobar si la fecha tiene patrón dd-mm-aaaa
+
+        let contenido = fecha.split("-"); //Separo el String de fecha en un array para obtener dia, mes y año.
+        let fechaActual = new Date(); //Obtengo la fecha actual para comparar si el año de la fecha del form coincide 
+                                  //con el año en curso.
+
+        if(contenido[1] <= 0 || contenido[1] > 12){
+                return false;
+        }else if(contenido[0] <= 1 || contenido[0] > 31){
+                return false;
+        }else if(contenido[2] >= fechaActual.getFullYear()){
+                return false;
+        }else if(exp_reg_barras.test(fecha) == true || exp_reg_guiones.test(fecha) == true){
+                return true;
+        }
+
+}
+
+function comprobarHora(hora){
+        let exp_reg_hora = /^\d{2}:\d{2}$/; //Comprobar si la hora tiene patrón hh:mm
+
+        let cont_hora = hora.split(":");
+
+        if(cont_hora[0] < 0 || cont_hora[0] > 24){
+                return false;
+        }else if(cont_hora[1] < 0 || cont_hora[1] > 59){
+                return false;
+        }else if(exp_reg_hora.test(hora) == true) {
+                return true;
         }
 }
