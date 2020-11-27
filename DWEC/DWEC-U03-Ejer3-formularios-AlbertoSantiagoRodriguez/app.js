@@ -33,16 +33,19 @@ function validarFormulario(evento) {
         var telefono = document.getElementById('telefono');
         var hora = document.getElementById('hora');
 
-        nombre.setAttribute("class","");
 
         if(nombre.value.length == 0) {
                 campos['nombre'] = 'El nombre no puede estar vacío';
                 nombre.setAttribute("class","error");
+        }else{
+                nombre.setAttribute("class","");
         }
 
         if(apellidos.value.length == 0){
                 campos['apellidos'] = 'Los apellidos no pueden estar vacíos';
                 apellidos.setAttribute("class","error");
+        }else{
+                apellidos.setAttribute("class","");
         }
 
         if(edad.type == 'text'){
@@ -54,36 +57,50 @@ function validarFormulario(evento) {
                 edad.value = 0;
 
                 edad.setAttribute("class","error");
+        }else{
+                edad.setAttribute("class","");
         }
 
         if(!comprobarNIF(dni.value)){
                 campos['dni'] = 'El DNI introducido no es válido.';
                 dni.setAttribute("class","error");
+        }else{
+                dni.setAttribute("class","");
         }
 
         if(!comprobarCorreo(email.value)){
                 campos['correo'] = 'El correo introducido no es válido.';
                 email.setAttribute("class","error");
+        }else{
+                email.setAttribute("class","");
         }
 
         if(provincia.value == 0){
                 campos['provincia'] = 'No ha seleccionado una provincia.';
                 provincia.setAttribute("class","error");
+        }else{
+                provincia.setAttribute("class","");
         }
 
         if(!comprobarFecha(fecha.value)){
                 campos['fecha'] = 'La fecha introducida no tiene formato válido';
                 fecha.setAttribute("class","error");
+        }else{
+                fecha.setAttribute("class","");
         }
 
         if(!comprobarTelefono(telefono.value)){
                 campos['telefono'] = 'El teléfono introducido no es válido.';
                 telefono.setAttribute("class","error");
+        }else{
+                telefono.setAttribute("class","");
         }
 
         if(!comprobarHora(hora.value)){
                 campos['hora'] = 'La hora indicada no es válida.';
                 hora.setAttribute("class","error");
+        }else{
+                hora.setAttribute("class","");
         }
 
 
