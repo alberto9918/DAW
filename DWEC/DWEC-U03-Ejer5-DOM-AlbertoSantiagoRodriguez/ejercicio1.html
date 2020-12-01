@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", iniciar);
+
+    function iniciar(){
+        var lista = document.createElement("ul");
+        var linea1 = document.createElement("li");
+        var linea2 = document.createElement("li");
+        var linea3 = document.createElement("li");
+        var enlace1 = document.createElement("a");
+        var enlace2 = document.createElement("a");
+        var enlace3 = document.createElement("a");
+        var enlaces = document.getElementsByTagName("a");
+        var input = document.createElement("input");
+
+        enlace1.setAttribute("href","https://www.adobe.com/es/");
+        enlace1.innerHTML = "Adobe";
+
+        enlace2.setAttribute("href","https://www.apple.com/es/");
+        enlace2.innerHTML = "Apple";
+
+        enlace3.setAttribute("href","https://www.ibm.com/es-es");
+        enlace3.innerHTML = "IBM";
+
+        linea1.appendChild(enlace1);
+        linea2.appendChild(enlace2);
+        linea3.appendChild(enlace3);
+
+        lista.setAttribute("id","lista");
+        lista.appendChild(linea1);
+        lista.appendChild(linea2);
+        lista.appendChild(linea3);
+
+        input.setAttribute("type","text");
+        input.setAttribute("id","texto");
+
+        document.body.appendChild(lista);
+        document.body.appendChild(input);
+        
+
+        for (let i = 0; i < enlaces.length; i++) {
+            enlaces[i].addEventListener("mouseover", function(){
+                mostrarEnlace(enlaces[i])
+            }, false);
+            
+        }
+ 
+    }
+
+    function mostrarEnlace(evento){
+        document.getElementById("texto").setAttribute("value", evento.getAttribute("href"));
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

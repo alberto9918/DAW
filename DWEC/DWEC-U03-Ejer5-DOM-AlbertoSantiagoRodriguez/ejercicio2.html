@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", iniciar);
+
+    function iniciar(){
+        var fila = document.createElement("span");
+        var boton1 = document.createElement("button");
+        var boton2 = document.createElement("button");
+        var boton3 = document.createElement("button");
+        var botones = document.getElementsByTagName("button");
+        var input = document.createElement("input");
+        
+        boton1.textContent = "Boton1";
+        boton2.textContent = "Boton2";
+        boton3.textContent = "Boton3";
+
+        fila.setAttribute("id","fila");
+        fila.appendChild(boton1);
+        fila.appendChild(boton2);
+        fila.appendChild(boton3);
+
+        input.setAttribute("type","text");
+        input.setAttribute("id","texto");
+
+        fila.appendChild(input);
+        document.body.appendChild(fila);
+        
+        
+
+        for (let i = 0; i < botones.length; i++) {
+            botones[i].addEventListener("click", function(){
+                mostrarTexto(botones[i])
+            }, false);
+            
+        }
+ 
+    }
+
+    function mostrarTexto(evento){
+        document.getElementById("texto").setAttribute("value", evento.textContent);
+    }
+
+</script>
+<body>
+    
+</body>
+</html>
