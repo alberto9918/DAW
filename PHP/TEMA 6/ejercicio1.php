@@ -13,6 +13,7 @@ if(isset($_POST['submit_formulario1'])){
 
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
+    $caso = 0;
     
     if(!empty($usuario)){
         $usuario = filter_var($usuario, FILTER_SANITIZE_STRING);
@@ -37,20 +38,43 @@ if(isset($_POST['submit_formulario1'])){
 
         try{
             $conexion = new PDO('mysql:host=localhost:3306;dbname=prueba','usuario','usuario');
+
+            $resultados = $conexion->query('select * from usuario');
+
+            foreach($resultados as $fila){
+                if($fila['nombreUsuario']==$usuario && $fila['password']==$password){
+                    $caso = 1;
+                    break;
+                }
+
+                if($fila['nombreUsuario']==$usuario && $fila['password']!=$password){
+                    $caso = 2;
+                    break;
+                }
+
+            }
+
+            if($caso==0){
+                $errores.="No existe ningún usuario con ese nombre";
+            }else if($caso==1){
+                $errores.="USUARIO Y CONTRASEÑA CORRECTOS. LOGIN OK";
+            }else if($caso==2){
+                $errores.="Contraseña incorrecta";
+            }
     
             //$stmt = $conexion -> query("select * from usuario where nombreUsuario='$usuario' and password='$password'");
     
-            $stmt = $conexion -> prepare("select * from usuario where nombreUsuario=:usuario and password=:password");
+            /*$stmt = $conexion -> prepare("select * from usuario where nombreUsuario=:usuario and password=:password");
             $parametros=array('usuario'=>$usuario, 'password'=>$password);
-            $stmt -> execute($parametros);
+            $stmt -> execute($parametros);*/
             //query("select * from usuario where nombreUsuario like :nom1 or nombreUsuario like :nom2);
             //$parametros=array(':nom1'=>$letra1, ':nom2'=>$letra2)
             //$stmt -> execute($parametros);
 
-            $resultados = $stmt -> fetchAll();
+            /*$resultados = $stmt -> fetchAll();
     
             print_r($resultados);
-            echo '<br>';
+            echo '<br>';*/
             
             
         }catch(PDOException $e){
