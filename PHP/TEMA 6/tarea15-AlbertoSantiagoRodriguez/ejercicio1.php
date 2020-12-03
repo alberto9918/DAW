@@ -3,6 +3,7 @@
         $conexion = new PDO('mysql:host=localhost:3306;dbname=PRUEBASCLASE','usuario','usuario');
         $tipo = "S";
         
+        //where TIPO_CENTRO=? y después poner $stmt->bindParam(1,$tipo);
         $stmt = $conexion -> prepare('select * from CENTROS where TIPO_CENTRO=:tipo');
         $parametros=array('tipo'=>$tipo);
         $stmt -> execute($parametros);
