@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", iniciar);
+
+    function iniciar(){
+        var fila = document.createElement("span");
+        var boton1 = document.createElement("button");
+        var boton2 = document.createElement("button");
+        var boton3 = document.createElement("button");
+        var botones = document.getElementsByTagName("button");
+        
+        boton1.textContent = "Fondo imagen 1";
+        boton2.textContent = "Fondo imagen 2";
+        boton3.textContent = "Fondo imagen 3";
+
+        boton1.setAttribute("value", "https://cdn.shopify.com/s/files/1/0229/0839/files/Busqueda_de_imagenes_3_large.jpg?v=1578328497");
+        boton2.setAttribute("value","https://cde.laprensa.e3.pe/ima/0/0/2/3/8/238082.jpg");
+        boton3.setAttribute("value","https://static4.abc.es/media/tecnologia/2019/07/16/google-kWqC--620x349@abc.jpg");
+        
+
+        fila.setAttribute("id","fila");
+        fila.appendChild(boton1);
+        fila.appendChild(boton2);
+        fila.appendChild(boton3);
+
+        document.body.appendChild(fila);
+               
+
+        for (let i = 0; i < botones.length; i++) {
+            botones[i].addEventListener("click", function(){
+                cambiarFondo(botones[i])
+            }, false);
+            
+        }
+ 
+    }
+
+    function cambiarFondo(evento){
+        document.body.style.backgroundImage = "url("+evento.getAttribute("value")+")";
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

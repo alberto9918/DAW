@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", iniciar);
+
+    function iniciar(){
+        var boton = document.getElementById("boton");
+        boton.addEventListener("click", agregarEspecificacion,false);
+ 
+    }
+
+    function agregarEspecificacion(){
+        let opciones = document.getElementsByName("curso");
+        for (let i = 0; i < opciones.length; i++) {
+            let opcion = opciones[i];
+            if(opcion.checked){
+                if(opcion.value == "otro"){
+                    
+                    let especificacion = document.createElement("input");
+                    let label = document.createElement("label");
+
+                    label.innerHTML = "Especifique";
+                    especificacion.setAttribute("type","text");
+
+                    document.body.appendChild(label);
+                    document.body.appendChild(especificacion);
+                }
+            }
+            
+        }
+        
+    }
+
+</script>
+<body>
+    <label for="curso">Seleccione un curso</label><br>
+
+    <input type="radio" name="curso" id="radio1" value="html">HTML<br>
+    <input type="radio" name="curso" id="radio2" value="css">CSS<br>
+    <input type="radio" name="curso" id="radio3" value="otro">Otro<br>
+
+
+    <input type="button" value="Enviar" id="boton">
+    
+</body>
+</html>

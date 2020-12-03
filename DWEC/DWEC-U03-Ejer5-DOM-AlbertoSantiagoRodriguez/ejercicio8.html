@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<script>
+    window.addEventListener("DOMContentLoaded", iniciar);
+
+    function iniciar(){
+        var boton = document.getElementById("boton");
+        boton.addEventListener("click", agregarElemento,false);
+ 
+    }
+
+    function agregarElemento(){
+        let nodo = document.createElement("li");
+        nodo.innerHTML = "Nuevo elemento de la lista";
+
+        document.getElementById("lista").appendChild(nodo);
+    }
+
+</script>
+<body>
+    <ul id="lista">
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Consectetuer adipiscing elit</li>
+        <li>Sed mattis enim vitae orci</li>
+        <li>Phasellus libero</li>
+        <li>Maecenas nisl arcu</li>
+    </ul>
+
+    <input type="button" value="Añadir elemento" id="boton">
+    
+</body>
+</html>
